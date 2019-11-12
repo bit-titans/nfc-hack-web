@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyAYkBA688MPkgrNpv0HCPaWh7kiiPK3CmA",
+    authDomain: "nfc-hack-198c6.firebaseapp.com",
+    databaseURL: "https://nfc-hack-198c6.firebaseio.com",
+    projectId: "nfc-hack-198c6",
+    storageBucket: "nfc-hack-198c6.appspot.com",
+    messagingSenderId: "735757069444",
+    appId: "1:735757069444:web:ef072f36ceab86ca6966d1",
+    measurementId: "G-9J57KGW07L"
+  }
 };
 
 /*

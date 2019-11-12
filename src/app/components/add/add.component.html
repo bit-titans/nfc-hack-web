@@ -1,0 +1,35 @@
+<body>
+<div class="fbody">
+    <form >
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter name.." [(ngModel)]="name">
+  
+      <label for="usn">USN</label>
+      <input type="text" id="lname" name="lastname" placeholder="Enter USN..." [(ngModel)]="USN" >
+      <label for="file">Choose Candidate image:- </label><br>
+      <input type="file" (change)="uploadFile($event)" />
+      <div>Uploading:{{ uploadPercent | async }}%</div><br><br>
+      <label for="batch">Batch</label>
+      <select id="batch" name="Batch" (change)="setBatch($event.target.value)">
+        <option value="def">Select a batch</option>
+        <option *ngFor="let batch of batches" value="{{batch}}">{{batch}}</option>
+      </select>
+      <label for="sem">Sem</label>
+      <select id="Sem" name="Sem" (change)="setSem($event.target.value)">
+            <option value="def">Select a Sem</option>
+            <option *ngFor="let sem of sems" value="{{sem}}">{{sem}}</option>
+          </select>
+          <label for="ele1" *ngIf="show">Elective 1</label>
+          <select id="ele1" name="ele1" (change)="setele1($event.target.value)" *ngIf="show">
+                <option value="def">Select First Elective</option>
+                <option *ngFor="let elec of elect1" value="{{elec}}">{{elec}}</option>
+              </select>
+              <label for="ele2" *ngIf="show">Elective 2</label>
+          <select id="ele2" name="ele2" (change)="setele2($event.target.value)" *ngIf="show">
+                <option value="def">Select First Elective</option>
+                <option *ngFor="let elec of elect2" value="{{elec}}">{{elec}}</option>
+              </select>
+      <input type="button" value="Submit" style="margin-top: 50px;" (click)="submit()">
+    </form>
+  </div>
+</body>

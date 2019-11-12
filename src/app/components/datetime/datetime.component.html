@@ -1,0 +1,26 @@
+<body>
+    <div class="d-flex justify-content-center" style="padding-top: 20px;">
+        <label for="batch" style="color: white;font-size: 1.5vw;">Batch:</label>
+        <select id="batch" name="Batch" (change)="setBatch($event.target.value)">
+          <option value="def">Select a batch</option>
+          <option *ngFor="let batch of batches" value="{{batch}}">{{batch}}</option>
+        </select></div>
+        <div class="d-flex justify-content-center" style="padding-top: 20px;">
+        <label for="sem"  style="color: white;font-size: 1.5vw;">Sem:</label>
+        <select id="Sem" name="Sem" (change)="setSem($event.target.value)">
+              <option value="def">Select a Sem</option>
+              <option *ngFor="let sem of sems" value="{{sem}}">{{sem}}</option>
+            </select>
+            </div>
+            <br>
+            <ul style="color: white;">
+              <li *ngFor="let sub of subs;let index = index;trackBy:trackByIndex;">{{sub}}<br>Date:- <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date[index]">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field><br>Time:- <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Choose Time" [(ngModel)]="time[index]">
+                  </mat-form-field></li>
+            </ul>
+            <button (click)="submit()" *ngIf="show">Submit</button>
+</body>
